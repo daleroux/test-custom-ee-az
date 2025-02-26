@@ -4,7 +4,7 @@
 
   tasks:
     - name: Pause for 60 minutes to debug
-      ansible.buildin.pause:
+      ansible.builtin.pause:
         minutes: 60
 
     - name: Query sub id and resource group
