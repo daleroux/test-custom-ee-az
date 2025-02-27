@@ -11,8 +11,11 @@
       debug:
         var: az_version.stdout
 
+    - name: reinstall resource-graph
+      command: /bin/sh -c 'az extension add -n resource-graph -y'
+
     - name: uninstall resource-graph
-      command: 'az extension remove -n resource-graph'
+      command: /bin/sh -c 'az extension remove -n resource-graph'
 
     - name: reinstall resource-graph
       command: /bin/sh -c 'az extension add -n resource-graph -y'
