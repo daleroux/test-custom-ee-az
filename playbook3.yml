@@ -3,7 +3,7 @@
   hosts: all
 
   tasks:
-    - name: check az version
+    - name: lets check az version
       command: /bin/sh -c 'az version'
       register: az_version
 
