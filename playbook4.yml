@@ -5,6 +5,9 @@
     ansible_python_interpreter: /usr/bin/python3 
 
   tasks:
+    - name: Disable Python user site-packages for Ansible
+      ansible.builtin.command: "python3 -s -m site"
+
     - name: lets check az version
       command: /bin/sh -c 'az version'
       register: az_version
@@ -17,7 +20,7 @@
     #  command: /bin/sh -c 'az extension add -n resource-graph -y'
 
     - name: Query sub id and resource group
-      command: /bin/sh -c '/usr/bin/az graph query --help'
+      command: /bin/sh -c 'PYTHONNOUSERSITE=1 /usr/bin/az graph query --help'
       register: graph_result
 
     - name: Display graph query result
