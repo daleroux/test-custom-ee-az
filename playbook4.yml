@@ -16,8 +16,8 @@
       debug:
         var: az_version.stdout
 
-    #- name: reinstall resource-graph
-    #  command: /bin/sh -c 'az extension add -n resource-graph -y'
+    - name: reinstall resource-graph
+      command: /bin/sh -c 'az extension add -n resource-graph -y --debug'
 
     - name: Query sub id and resource group
       command: /bin/sh -c 'PYTHONNOUSERSITE=1 /usr/bin/az graph query --help'
