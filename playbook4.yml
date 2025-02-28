@@ -1,6 +1,8 @@
 ---
 - name: Test az graph in Custom EE
   hosts: all
+  vars:
+    ansible_python_interpreter: /usr/bin/python3 
 
   tasks:
     - name: lets check az version
