@@ -1,0 +1,23 @@
+---
+- name: Test az graph in Custom EE
+  hosts: all
+
+  tasks:
+    - name: lets check az version
+      command: /bin/sh -c 'az version'
+      register: az_version
+
+    - name: Display az version
+      debug:
+        var: az_version.stdout
+
+    #- name: reinstall resource-graph
+    #  command: /bin/sh -c 'az extension add -n resource-graph -y'
+
+    - name: Query sub id and resource group
+      command: /bin/sh -c '/usr/bin/az graph query --help'
+      register: graph_result
+
+    - name: Display graph query result
+      debug:
+        var: graph_result.stdout
